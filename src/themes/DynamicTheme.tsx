@@ -8,7 +8,9 @@ import { ReactNode } from 'react';
 import theme from '@/themes';
 
 const GlobalStyle = createGlobalStyle`
-    body {}
+    body {
+      /* you can add global style here */
+    }
 `;
 
 interface IProps {

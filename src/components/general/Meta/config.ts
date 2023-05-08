@@ -1,5 +1,4 @@
 import * as T from './types';
-import { NextRouter } from 'next/router';
 
 /* TODO: add origin after deployment */
 export const origin = '';

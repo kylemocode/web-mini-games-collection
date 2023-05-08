@@ -2,7 +2,7 @@ import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
 
 import DynamicTheme from '@/themes/DynamicTheme';
-import Meta from '@/components/Meta/Meta';
+import Meta from '@/components/general/Meta/Meta';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
