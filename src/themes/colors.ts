@@ -82,6 +82,9 @@ const colors = {
   MEDAL_THIRD: '#ae6a32',
   DETAIL_PRIMARY: '#013353',
   DETAIL_SECONDARY: '#ee837d',
+  MINESCREEPER_BACKGROUND: 'rgb(157, 169, 160)',
+  CEIL_RED: '#ed9687',
+  CEIL_RED_OPRNING: '#f25d44',
 };
 
 export default colors;

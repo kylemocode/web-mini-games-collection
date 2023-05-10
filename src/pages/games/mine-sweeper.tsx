@@ -10,6 +10,8 @@ const PageStyle = createGlobalStyle`
         mainAlign: MainAlignment.center,
         crossAlign: CrossAlignment.center,
       })}
+      background-color: ${p => p.theme.colors.MINESCREEPER_BACKGROUND};
+      user-select: none;
     }
 `;
 

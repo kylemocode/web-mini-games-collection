@@ -28,7 +28,11 @@ const generateGameConfig = (config: ConfigSetting) => {
   };
 };
 
-const getNearIndexes = (index: number, rows: number, columns: number) => {
+export const getNearIndexes = (
+  index: number,
+  rows: number,
+  columns: number
+) => {
   if (index < 0 || index >= rows * columns) return [];
   const row = Math.floor(index / columns);
   const column = index % columns;
@@ -91,8 +95,10 @@ const setBombs = (
 ) => {
   const { rows, columns, bombs, exclude } = config;
   const ceils = originCeils.map(ceil => ({ ...ceil }));
+
   if (rows * columns !== ceils.length)
     throw new Error('rows and columns not equal to ceils');
+
   const indexArray = [...Array(rows * columns).keys()];
 
   sampleSize(
@@ -104,6 +110,7 @@ const setBombs = (
       ceils[nearIndex].nearBombs += 1;
     });
   });
+
   return {
     rows,
     columns,
@@ -124,17 +131,15 @@ export const initialStateFactory = (
 
 export const mineSweeperReducer = (
   state: MineSweeperState,
-  action: DispatchActionType = {
-    type: ActionType.CLEAR_MAP,
-    payload: MineSweeperDifficulty.BEGINNER,
-  }
+  action: DispatchActionType
 ): MineSweeperState => {
   switch (action.type) {
     case ActionType.CLEAR_MAP:
-      const difficulty = action.payload || state.difficulty;
+      const difficulty = action.payload ?? state.difficulty;
       return initialStateFactory(difficulty);
     case ActionType.START_GAME:
       const exclude = action.payload;
+
       return {
         ...state,
         ...setBombs(
@@ -146,16 +151,18 @@ export const mineSweeperReducer = (
     case ActionType.OPEN_CEIL: {
       const indexes = autoOpenCeils(state, action.payload);
       const ceils = [...state.ceils];
+
       indexes.forEach(i => {
         const ceil = ceils[i];
         ceils[i] = { ...ceil, status: CeilStatus.OPEN };
       });
+
       return {
         ...state,
         ceils,
       };
     }
-    case ActionType.CHANGE_CEIL_STATE: {
+    case ActionType.CHANGE_CEIL_STATUS: {
       const index = action.payload;
       const ceils = [...state.ceils];
       const ceil = state.ceils[index];
