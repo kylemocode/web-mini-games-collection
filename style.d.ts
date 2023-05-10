@@ -3,7 +3,7 @@
 
 // import original module declarations
 import { FlattenSimpleInterpolation } from 'styled-components';
-import Colors from '@/common/themes/colors';
+import Colors from '@/themes/colors';
 
 // and extend them!
 declare module 'styled-components' {
