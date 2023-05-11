@@ -1,38 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Web Mini Games Collection
 
-## Getting Started
+A website playground that collect classic web mini games🤖
 
-First, run the development server:
+## How to run it locally ?
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+Please use Node.js version at least above v16.
+
+```shell
+$ yarn install | npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then run
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```shell
+$ yarn run dev | npm run dev
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+You should be able to see the Minesweeper game UI at localhost:3000/games/mine-sweeper.(No homepage for now)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Access it online
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Online link: https://web-mini-games-collection.vercel.app/games/mine-sweeper
 
-## Learn More
+## Supported Games
 
-To learn more about Next.js, take a look at the following resources:
+Currently, this application only supports a single game, Minesweeper.(Don't be disappointed, stay tuned for more games 😂)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Minesweeper
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+![](https://i.imgur.com/ceX2BIT.png)
 
-## Deploy on Vercel
+#### Rules
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Clicking a mine ends the game.
+- Clicking a square with an adjacent mine clears that square and shows the number of mines touching it.
+- Clicking a square with no adjacent mine clears that square and clicks all adjacent squares.
+- The first click will never be a mine, it will clear the map and place numbers on the grid.
+- The numbers reflect the number of mines touching a square.
+- Right clicking on a square puts a flag on it. The flagged square can’t be opened by a click.
+- If the number in a square is equal to the number of squares touching that square that are flagged, double clicking on the number opens up all remaining squares around the number.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+#### Future Roadmap
+
+- [ ] Testing
+- [ ] Support Mobile Devices (Touch Events)
+- [ ] Addressing the issue where certain emojis may not display correctly on different operating systems.
