@@ -45,6 +45,9 @@ const MineSweeperModule: FC = () => {
     }
   };
 
+  /* If the number in a square is equal to the number
+   * of squares touching that square that are flagged,
+   * double clicking on the number opens up all remaining squares around the number. */
   const openMultiCeils = (index: number) => {
     const ceil = state.ceils[index];
 
