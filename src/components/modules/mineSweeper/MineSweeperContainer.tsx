@@ -1,7 +1,7 @@
-import { FC, useCallback, useState, useEffect, useRef, memo } from 'react';
+import { FC, useState, useEffect, useRef, memo } from 'react';
 import styled from 'styled-components';
 
-import useMineScreeperTimer from '@/hooks/useMineScreeperTimer';
+import useMineSweeperTimer from '@/hooks/useMineSweeperTimer';
 import { flexBox, MainAlignment, CrossAlignment } from '@/utils/flexBox';
 import { MineSweeperState } from './types';
 import { CeilStatus, GameStatus, MineSweeperDifficulty } from './config';
@@ -78,7 +78,7 @@ const Ceils: FC<ICeilsProps> = ({
 
 // eslint-disable-next-line react/display-name
 const TimerSection: FC<{ status: GameStatus }> = memo(({ status }) => {
-  const timerSeconds = useMineScreeperTimer(status);
+  const timerSeconds = useMineSweeperTimer(status);
 
   return (
     <>

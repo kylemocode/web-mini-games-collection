@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 
 import { GameStatus } from '@/components/modules/mineSweeper/config';
 
-function useMineScreeperTimer(status: GameStatus): number {
+function useMineSweeperTimer(status: GameStatus): number {
   const [seconds, setSeconds] = useState(0);
 
   const addSecond = useCallback(() => {
@@ -29,4 +29,4 @@ function useMineScreeperTimer(status: GameStatus): number {
   return seconds;
 }
 
-export default useMineScreeperTimer;
+export default useMineSweeperTimer;
