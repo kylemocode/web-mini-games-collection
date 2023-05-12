@@ -45,3 +45,7 @@ Currently, this application only supports a single game, Minesweeper.(Don't be d
 - [ ] Testing
 - [ ] Support Mobile Devices (Touch Events)
 - [ ] Addressing the issue where certain emojis may not display correctly on different operating systems.
+
+## Contribution
+
+If you'd like to contribute to this project, please refer to https://gitmoji.dev/ and use specific emojis to write commit messages for certain scenarios.
