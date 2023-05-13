@@ -2,6 +2,12 @@
 
 A website playground that collect classic web mini games🤖
 
+## Technical Stack
+
+- Next.js (Page Directory)
+- TypeScript
+- styled-components
+
 ## How to run it locally ?
 
 Please use Node.js version at least above v16.
