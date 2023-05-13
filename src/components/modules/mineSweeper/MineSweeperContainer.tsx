@@ -311,6 +311,12 @@ const StyledStatusItem = styled.div`
 const StyledStatusFaceBtn = styled.div`
   font-size: 24px;
   cursor: pointer;
+  padding: 0 5px;
+  transition: background 0.15s;
+
+  &:hover {
+    background: ${p => p.theme.colors.BLACK_015};
+  }
 `;
 
 const StyledCeilsSection = styled.div<{
