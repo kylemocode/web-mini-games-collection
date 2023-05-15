@@ -106,14 +106,6 @@ const MineSweeperModule: FC = () => {
     []
   );
 
-  const openingMultiCeils = useCallback(
-    (index: number, gameStatus: GameStatus) => {
-      if ([GameStatus.DIED, GameStatus.WIN].includes(gameStatus)) return;
-      dispatch({ type: ActionType.OPENING_CEILS, payload: index });
-    },
-    []
-  );
-
   const getRemainBombsCounts = () => {
     const safeCeils = state.ceils
       .filter(ceil => ceil.status !== CeilStatus.OPEN)
@@ -133,7 +125,6 @@ const MineSweeperModule: FC = () => {
       {...state}
       handleReset={handleReset}
       openingSingleCeil={openingSingleCeil}
-      openingMultiCeils={openingMultiCeils}
       changeCeilStatus={changeCeilStatus}
       openSingleCeil={openSingleCeil}
       openMultiCeils={openMultiCeils}

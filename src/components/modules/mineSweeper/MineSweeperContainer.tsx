@@ -9,7 +9,6 @@ import { CeilStatus, GameStatus, MineSweeperDifficulty } from './config';
 interface IMineSweeperContainerProps extends MineSweeperState {
   handleReset: (difficulty: MineSweeperDifficulty) => void;
   openingSingleCeil: (index: number, gameStatus: GameStatus) => void;
-  openingMultiCeils: (index: number, gameStatus: GameStatus) => void;
   openSingleCeil: (index: number) => void;
   openMultiCeils: (index: number) => void;
   changeCeilStatus: (
@@ -97,7 +96,6 @@ const MineSweeperContainer: FC<IMineSweeperContainerProps> = ({
   handleReset,
   changeCeilStatus,
   openingSingleCeil,
-  openingMultiCeils,
   openSingleCeil,
   openMultiCeils,
 }) => {
@@ -194,7 +192,7 @@ const MineSweeperContainer: FC<IMineSweeperContainerProps> = ({
     } else {
       openingSingleCeil(-1, status);
     }
-  }, [openInformation, openingMultiCeils, openingSingleCeil, status]);
+  }, [openInformation, openingSingleCeil, status]);
 
   useEffect(() => {
     window.addEventListener('mouseup', handleMouseUp);
