@@ -106,7 +106,7 @@ const MineSweeperModule: FC = () => {
     []
   );
 
-  const getRemainBombsCounts = () => {
+  const getRemainingSafeCeilsCount = () => {
     const safeCeils = state.ceils
       .filter(ceil => ceil.status !== CeilStatus.OPEN)
       .filter(ceil => ceil.nearBombs >= 0);
@@ -115,7 +115,10 @@ const MineSweeperModule: FC = () => {
   };
 
   useEffect(() => {
-    if (state.status === GameStatus.STARTED && getRemainBombsCounts() === 0) {
+    if (
+      state.status === GameStatus.STARTED &&
+      getRemainingSafeCeilsCount() === 0
+    ) {
       dispatch({ type: ActionType.WIN });
     }
   });
