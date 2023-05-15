@@ -245,22 +245,6 @@ export const mineSweeperReducer = (
         ceils,
       };
     }
-    case ActionType.OPENING_CEILS: {
-      const indexes = getNearIndexes(action.payload, state.rows, state.columns);
-      const ceils = state.ceils.map(ceil => ({
-        ...ceil,
-        opening: false,
-      }));
-      [...indexes, action.payload].forEach(index => {
-        const ceil = { ...ceils[index] };
-        ceil.opening = true;
-        ceils[index] = ceil;
-      });
-      return {
-        ...state,
-        ceils,
-      };
-    }
     default:
       return state;
   }
