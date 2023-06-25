@@ -1,3 +1,4 @@
+import newrelic from 'newrelic';
 import Document, {
   DocumentContext,
   DocumentInitialProps,
@@ -8,10 +9,22 @@ import Document, {
 } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
-export default class MyDocument extends Document<DocumentInitialProps> {
-  static async getInitialProps(ctx: DocumentContext) {
+type NewRelicProps = {
+  browserTimingHeader: string;
+};
+
+export default class MyDocument extends Document<
+  DocumentInitialProps & NewRelicProps
+> {
+  static async getInitialProps(
+    ctx: DocumentContext
+  ): Promise<DocumentInitialProps & NewRelicProps> {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
+
+    const browserTimingHeader = newrelic.getBrowserTimingHeader({
+      hasToRemoveScriptWrapper: true,
+    });
 
     try {
       ctx.renderPage = () =>
@@ -23,6 +36,7 @@ export default class MyDocument extends Document<DocumentInitialProps> {
 
       return {
         ...initialProps,
+        browserTimingHeader,
         styles: (
           <>
             {initialProps.styles}
@@ -56,6 +70,10 @@ export default class MyDocument extends Document<DocumentInitialProps> {
           <meta name='apple-mobile-web-app-capable' content='yes' />
           {/* https://github.com/whatwg/html/issues/4504 */}
           <meta name='supported-color-schemes' content='light' />
+          <script
+            type='text/javascript'
+            dangerouslySetInnerHTML={{ __html: this.props.browserTimingHeader }}
+          />
         </Head>
         <body>
           <Main />
