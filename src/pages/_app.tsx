@@ -9,6 +9,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 function MyApp({ Component, pageProps }: AppProps) {
+  console.log('test@');
   return (
     <DynamicTheme>
       <Meta />
