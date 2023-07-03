@@ -5,7 +5,7 @@ import DynamicTheme from '@/themes/DynamicTheme';
 import Meta from '@/components/general/Meta/Meta';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  console.log('test');
+  console.log('test@');
   return (
     <DynamicTheme>
       <Meta />
